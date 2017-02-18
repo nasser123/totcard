@@ -43,6 +43,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Venda.findByCancelada", query = "SELECT v FROM Venda v WHERE v.cancelada = :cancelada")})
 public class Venda implements Serializable {
 
+    @Column(name = "taxa")
+    private BigDecimal taxa;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -152,6 +155,14 @@ public class Venda implements Serializable {
     @Override
     public String toString() {
         return "model.Venda[ idvenda=" + idvenda + " ]";
+    }
+
+    public BigDecimal getTaxa() {
+        return taxa;
+    }
+
+    public void setTaxa(BigDecimal taxa) {
+        this.taxa = taxa;
     }
     
 }
